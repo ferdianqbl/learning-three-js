@@ -26,15 +26,15 @@ document.body.appendChild(renderer.domElement);
 const geo = new THREE.BufferGeometry();
 
 const vertices = new Float32Array([ // pembuatan titik harus searah semua
-  -1.0, -1.0, 1.0, // titik 0
-  1.0, 1.0, 1.0, // titik 1
-  -1.0, 1.0, 1.0, // titik 2
-  1.0, -1.0, 1.0,  // titik 3
+  -0.5, -0.5, 0.5, // titik 0
+  0.5, 0.5, 0.5, // titik 1
+  -0.5, 0.5, 0.5, // titik 2
+  0.5, -0.5, 0.5,  // titik 3
 
-  -1.0, -1.0, -1.0, // titik 4
-  1.0, 1.0, -1.0, // titik 5
-  -1.0, 1.0, -1.0, // titik 6
-  1.0, -1.0, -1.0,  // titik 7
+  -0.5, -0.5, -0.5, // titik 4
+  0.5, 0.5, -0.5, // titik 5
+  -0.5, 0.5, -0.5, // titik 6
+  0.5, -0.5, -0.5,  // titik 7
 ]);
 // r, g, b
 const colors = new Float32Array([
