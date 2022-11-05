@@ -37,7 +37,7 @@ document.body.appendChild(renderer.domElement);
 const animate = () => {
   requestAnimationFrame(animate);
 
-  boxMesh.rotation.x += 0.01;
+  // boxMesh.rotation.x += 0.01;
   boxMesh.rotation.y += 0.01;
 
   renderer.render(scene, camera);

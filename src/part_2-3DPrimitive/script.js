@@ -25,17 +25,40 @@ document.body.appendChild(renderer.domElement);
 
 const geo = new THREE.BufferGeometry();
 const vertices = new Float32Array([ // pembuatan titik harus searah semua
-  0.0, 0.0, 0.0, // titik 0
-  1.0, 0.0, 0.0, // titik 1
-  0.0, 1.0, 0.0, // titik 2
-  // 1.0, 0.0, 0.0,
-  1.0, 1.0, 0.0,  // titik 3
-  // 0.0, 1.0, 0.0,
+  -1.0, -1.0, 1.0, // titik 0
+  1.0, 1.0, 1.0, // titik 1
+  -1.0, 1.0, 1.0, // titik 2
+  1.0, -1.0, 1.0,  // titik 3
+
+  -1.0, -1.0, -1.0, // titik 4
+  1.0, 1.0, -1.0, // titik 5
+  -1.0, 1.0, -1.0, // titik 6
+  1.0, -1.0, -1.0,  // titik 7
 ]);
 geo.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
 geo.setIndex([
-  0, 1, 2, // membuat segitiga dari titik 0, 1, 2
-  1, 3, 2, // membuat segitiga dari titik 1, 2, 3
+  // sisi belakang
+  0, 3, 1,
+  1, 2, 0,
+
+  // sisi depan
+  4, 6, 5,
+  5, 7, 4,
+  // sisi kiri
+  4, 0, 2,
+  2, 6, 4,
+
+  // sisi kanan
+  5, 1, 3,
+  3, 7, 5,
+
+  // sisi atas
+  1, 5, 6,
+  6, 2, 1,
+
+  // sisi bawah
+  0, 4, 7,
+  7, 3, 0
 ])
 const mat = new THREE.MeshBasicMaterial({
   color: 0x00ff00,
@@ -48,7 +71,7 @@ scene.add(geoMesh);
 const animate = () => {
   requestAnimationFrame(animate);
 
-  geoMesh.rotation.x += 0.01;
+  // geoMesh.rotation.x += 0.01;
   geoMesh.rotation.y += 0.01;
 
   renderer.render(scene, camera);
